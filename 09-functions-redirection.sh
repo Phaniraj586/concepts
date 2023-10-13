@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# $1 - first argument
+# $2 - second argument
+# $? - exit code
+# $0 - script name
+
 DATE=$(date +%F)
 SCRIPT_NAME=$0
 LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log
