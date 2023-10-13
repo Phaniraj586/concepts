@@ -31,3 +31,4 @@ then
 else
     echo "Installation of POSTIFX is successful"
 fi
+#script end
