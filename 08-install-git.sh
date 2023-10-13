@@ -7,11 +7,15 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then 
     echo "ERROR : Please run the script with the root access"
-else
-
-yum install git -y
+    exit 1
 fi
-#
-#
-#
+# installing git 
 
+yum install git -y 
+if [ $? -ne 0 ]
+then    
+    echo "installation of Git is not successful error code is $?"
+    exit 1
+else
+    echo "Installation of Git is successful"
+fi
