@@ -24,12 +24,12 @@ fi
 
 # Installing mysql
 
-yum install mysql -you
+yum install mysql -y
 
 VALIDATE $?
 
 # Installing Postfix
 
-yum install postfix -you
+yum install postfix -y
 
 VALIDATE $?
