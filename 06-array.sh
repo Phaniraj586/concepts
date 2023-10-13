@@ -6,5 +6,5 @@ echo "All the persons in array are: ${PERSON[@]} " # reading all persons from th
  
 
  APPLICATION=("git" "postfix" "cyrus-sasl-plain" "mailx")
-N=$(${APPLICATION[#]})
+N=${#APPLICATION[@]}
 echo "No of items are: $N"
