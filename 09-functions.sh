@@ -7,11 +7,12 @@ USERID=$(id -u)
 VALIDATE(){
     #$1 --> it will receive the argumet 1
     if [ $1 -ne 0 ]
+    then
         echo "Installation is FAILURE"
         exit 1
     else 
         echo "Installation is SUCCESS"
-    fi 
+    fi
 }
 
 # Checking for root access
