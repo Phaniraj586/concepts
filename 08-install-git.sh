@@ -10,7 +10,7 @@ then
 else
 
 yum install git -y
-
+fi
 #
 #
 #
