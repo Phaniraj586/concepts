@@ -8,18 +8,18 @@
 
 #Installing git postfix cyrus-sasl-plain mailx
 
-APPLICATION=("git" "postfix" "cyrus-sasl-plain" "mailx")
-NUMBER=${#APPLICATION[@]}
-
-echo "No of items are: $N"
+    #APPLICATION=("git" "postfix" "cyrus-sasl-plain" "mailx")
+    #NUMBER=${#APPLICATION[@]}
+    #echo "No of items are: $NUMBER"
 
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
-
+Y="\e[33m"
 DATE=$(date +%F)
 SCRIPT_NAME=$0
-LOGFILE=/tmp/$SCRIPT_NAME-$DATE.log
+LOGSDIR=/home/centos/shellscript-logs
+LOGFILE=$LOGSDIR/$SCRIPT_NAME-$DATE.log
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -39,8 +39,15 @@ then
     exit 1
 fi
 
-for i in {1..$NUMBER}
+for i in $@
 do
-    yum install ${APPLICATION[i]} -y &>>$LOGFILE
-    VALIDATE $? "Installing ${APPLICATION[i]}"
+    yum list installed $i &>>$LOGFILE
+    if [ $? -ne 0 ]
+    then   
+        echo "$i is not installed, lets install $i"
+        yum install $i -y &>>$LOGFILE
+        VALIDATE $? "Installing $i"
+    else
+        echo -e "$Y $i is already installed $N"
+    fi
 done
