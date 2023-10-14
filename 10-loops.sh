@@ -39,7 +39,7 @@ then
     exit 1
 fi
 
-for i in {1..N}
+for i in {1..$N}
 do
     yum install ${APPLICATION[i]} -y &>>$LOGFILE
     VALIDATE $? "Installing ${APPLICATION[i]}"
