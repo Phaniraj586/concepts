@@ -9,7 +9,7 @@
 #Installing git postfix cyrus-sasl-plain mailx
 
 APPLICATION=("git" "postfix" "cyrus-sasl-plain" "mailx")
-N=${#APPLICATION[@]}
+NUMBER=${#APPLICATION[@]}
 
 echo "No of items are: $N"
 
@@ -39,7 +39,7 @@ then
     exit 1
 fi
 
-for i in {1..$N}
+for i in {1..$NUMBER}
 do
     yum install ${APPLICATION[i]} -y &>>$LOGFILE
     VALIDATE $? "Installing ${APPLICATION[i]}"
